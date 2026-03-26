@@ -73,3 +73,10 @@ const numbers = fibonacci2(700);
 console.log(`La secuencia de fibonacci hasta 700 sería:`);
 numbers.forEach(number2 => console.log(number2));
 
+/* Version 3, La mejor */
+
+function fibonacci(n, x = 0, y = 1) {
+  while (x <= n) {
+    console.log(x);
+    [x, y] = [y, x + y];}}
+fibonacci(700)
