@@ -80,3 +80,83 @@ function fibonacci(n, x = 0, y = 1) {
     console.log(x);
     [x, y] = [y, x + y];}}
 fibonacci(700)
+
+/*
+  EJERCICIO DE FOR OF
+  Crea un programa que pueda recorrer el siguiente array
+  [
+    ["manzana", "banana", "fresa"],
+    ["tomate", "cebolla", "lechuga"],
+    ["carne", "pollo", ["pescado", "mariscos"]],
+  ]
+  e imprima cada elemento del array, sin importar el nivel de anidacion.
+*/
+let mercado = [
+    ["manzana", "banana", "fresa"],
+    ["tomate", "cebolla", "lechuga"],
+    ["carne", "pollo", ["pescado", "mariscos"]],
+  ]
+function list(ar){
+  for (items of ar){
+    if (Array.isArray(items)){
+      for (item of items){
+        if (Array.isArray(item)){
+          for (i of item){
+            console.log(i)
+          }
+        }
+        else {
+          console.log(item)
+        }
+      }
+    }
+    else {
+      console.log(items)
+    }
+  }
+}
+list(mercado)
+
+/*
+  EJERCICIO DE FOR IN
+  Crea un programa que pueda recorrer el siguiente objeto
+  {
+    nombre: "Juan",
+    edad: 30,
+    direccion: {
+      calle: "Calle Falsa 123",
+      ciudad: "Madrid",
+      pais: "España",
+    },
+    hobbies: ["futbol", "musica", "cine"],
+  }
+  e imprima cada propiedad y su valor, sin importar el nivel de anidacion.
+*/
+let juan = {
+  nombre: "Juan",
+  edad: 30,
+  direccion: {
+    calle: "Calle Falsa 123",
+    ciudad: "Madrid",
+    pais: "España",
+  },
+  hobbies: ["futbol", "musica", "cine"],
+}
+/* if (typeof juan.direccion == "object"){
+  console.log("hola")} */
+function object(obj){
+  for (let objects in obj){
+    const values = obj[objects]
+    if (typeof values == "object" && values !== null){
+      console.log(`Propiedad: ${objects}`)
+      for (let o in values){
+        console.log(`${values[o]}`)
+      }
+    }
+    else{
+      console.log(`Propiedad: ${objects}`)
+      console.log(`Valor: ${values}`)
+    }
+  }
+}
+object(juan)
